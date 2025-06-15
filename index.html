@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2025 Product Price List</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    // Defining the product data
+    const products = [
+      { name: "CSTN KIM CƯƠNG", size: "1M8 10P", price: 11200000, stock: 1, category: "Mattress" },
+      { name: "CSTN KIM CƯƠNG", size: "1M6 5P", price: 6300000, stock: 1, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP KIM CƯƠNG", size: "1M6 12P", price: 2700000, stock: 3, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP KIM CƯƠNG", size: "1M4 12P", price: 2600000, stock: 1, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP KIM CƯƠNG", size: "1M2 12P", price: 2400000, stock: 1, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP KIM CƯƠNG", size: "1M 12P", price: 2200000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU THAN HOẠT TÍNH", size: "1M6 15P", price: 4400000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU THAN HOẠT TÍNH", size: "1M6 10P", price: 2900000, stock: 3, category: "Mattress" },
+      { name: "Á CHÂU THAN HOẠT TÍNH", size: "1M4 10P", price: 2700000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU THAN HOẠT TÍNH", size: "1M8 15P", price: 4600000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU THAN HOẠT TÍNH", size: "1M8 10P", price: 3100000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU ĐEN", size: "1M8 10P", price: 3500000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU GOLD", size: "1M6 15P", price: 4800000, stock: 1, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M8 20P", price: 2400000, stock: 1, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M6 20P", price: 2200000, stock: 1, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M4 20P", price: 2000000, stock: 1, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M6 15P", price: 1900000, stock: 1, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M4 15P", price: 1700000, stock: 2, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M 15P", price: 1400000, stock: 1, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M8 10P", price: 1600000, stock: 2, category: "Mattress" },
+      { name: "PE VIỆT HẢI", size: "1M2 10P", price: 1100000, stock: 2, category: "Mattress" },
+      { name: "Á CHÂU TRĂNG", size: "1M6 10P", price: 3700000, stock: 1, category: "Mattress" },
+      { name: "Á CHÂU TRĂNG", size: "1M4 10P", price: 3400000, stock: 1, category: "Mattress" },
+      { name: "BÔNG ÉP VIỆT HẢI", size: "1M8 15P", price: 2700000, stock: 1, category: "Mattress" },
+      { name: "CAO SU VIỆT HẢI", size: "1M8 10P", price: 2400000, stock: 1, category: "Mattress" },
+      { name: "TỔNG HỢP Á CHÂU", size: "1M8 10P", price: 3900000, stock: 1, category: "Mattress" },
+      { name: "ÉP VIỆT MỸ", size: "1M8 10P", price: 2200000, stock: 1, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP ROMANTIC", size: "1M6 20P", price: 4200000, stock: 1, category: "Mattress" },
+      { name: "BAO VIỀN", size: "1M8 30P", price: 4800000, stock: 1, category: "Mattress" },
+      { name: "BAO VIỀN", size: "1M6 30P", price: 4500000, stock: 1, category: "Mattress" },
+      { name: "GÒN THẲNG LOẠI 1", size: "1M8 10P", price: 2400000, stock: 1, category: "Mattress" },
+      { name: "LÒ XO", size: "1M6 25P", price: 2500000, stock: 1, category: "Mattress" },
+      { name: "HÀNG XẢ APOLLO", size: "1M6 12P", price: 1200000, stock: 3, category: "Mattress" },
+      { name: "HÀNG XẢ CAO SU ÉP", size: "1M6 10P", price: 1000000, stock: 2, category: "Mattress" },
+      { name: "CAO SU NON", size: "1M6 15P", price: 2100000, stock: 1, category: "Mattress" },
+      { name: "CAO SU NON", size: "1M6 10P", price: 1500000, stock: 2, category: "Mattress" },
+      { name: "CAO SU NON", size: "1M4 10P", price: 1400000, stock: 1, category: "Mattress" },
+      { name: "CAO SU NON", size: "1M2 10P", price: 1300000, stock: 1, category: "Mattress" },
+      { name: "CAO SU NON", size: "1M 10P", price: 1200000, stock: 1, category: "Mattress" },
+      { name: "CAO SU NON TOPER", size: "1M8 5P", price: 1000000, stock: 1, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP KIM CƯƠNG GẤP 3", size: "1M6 12P", price: 3200000, stock: 1, category: "Mattress" },
+      { name: "ÉP TỔNG HỢP KIM CƯƠNG GẤP 3", size: "1M4 12P", price: 3000000, stock: 1, category: "Mattress" },
+      { name: "GÒN VIỆT HẢI LOẠI 1", size: "1M6 5P", price: 2000000, stock: 1, category: "Mattress" },
+      { name: "CAO SU NON GẤP 3", size: "1M4 10P", price: 1600000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M8 10P", price: 1500000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M6 10P", price: 1400000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M4 10P", price: 1300000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M2 10P", price: 1200000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M8 5P", price: 900000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M6 5P", price: 800000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M4 5P", price: 750000, stock: 1, category: "Mattress" },
+      { name: "GÒN", size: "1M2 5P", price: 700000, stock: 2, category: "Mattress" },
+      { name: "GÒN", size: "1M 5P", price: 650000, stock: 2, category: "Mattress" },
+      { name: "ĐÀI LOAN", size: "4 CÁNH", price: 2900000, stock: 2, category: "Cabinet" },
+      { name: "ĐÀI LOAN", size: "3 CÁNH", price: 2300000, stock: 3, category: "Cabinet" },
+      { name: "ĐÀI LOAN", size: "2 CÁNH", price: 1800000, stock: 1, category: "Cabinet" },
+      { name: "ĐÀI LOAN", size: "3 CÁNH NHỎ", price: 1800000, stock: 1, category: "Cabinet" },
+      { name: "QUI PHÚC", size: "5 TẦNG (70)", price: 1600000, stock: 3, category: "Cabinet" },
+      { name: "QUI PHÚC", size: "5 TẦNG (60)", price: 1400000, stock: 6, category: "Cabinet" },
+      { name: "QUI PHÚC/DUY TÂN", size: "4 TẦNG (60)", price: 1300000, stock: 2, category: "Cabinet" },
+      { name: "QUI PHÚC", size: "5 TẦNG (40)", price: 850000, stock: 1, category: "Cabinet" },
+      { name: "QUI PHÚC", size: "4 TẦNG (40)", price: 750000, stock: 2, category: "Cabinet" },
+      { name: "QUI PHÚC", size: "3 TẦNG (40)", price: 650000, stock: 1, category: "Cabinet" },
+      { name: "QUI PHÚC", size: "2 CÁNH 3 HỘC", price: 2200000, stock: 1, category: "Cabinet" },
+      { name: "BÀN HỌC SINH GỖ", size: "1M2", price: 2200000, stock: 1, category: "Table" },
+      { name: "BÀN HỌC SINH ĐÀI LOAN", size: "1M", price: 1200000, stock: 4, category: "Table" },
+      { name: "BÀN HỌC SINH ĐÀI LOAN", size: "80", price: 1000000, stock: 3, category: "Table" },
+      { name: "BÀN XẾP GỖ 4 CHÂN", size: "40X60", price: 300000, stock: 4, category: "Table" },
+      { name: "GHẾ XOAY QUI PHÚC", size: "X", price: 700000, stock: 1, category: "Chair" },
+      { name: "TỦ SẮT", size: "1M2 3 CÁNH", price: 1400000, stock: 1, category: "Cabinet" },
+      { name: "TỦ SẮT", size: "1M2 2 CÁNH", price: 1300000, stock: 1, category: "Cabinet" },
+      { name: "TỦ SẮT", size: "1M8", price: 850000, stock: 1, category: "Cabinet" },
+      { name: "TỦ SẮT", size: "1M6", price: 750000, stock: 2, category: "Cabinet" },
+      { name: "VÕNG SẮT TRÒN", size: "X", price: 600000, stock: 3, category: "Hammock" },
+      { name: "VÕNG SẮT VUÔNG", size: "X", price: 650000, stock: 1, category: "Hammock" },
+      { name: "VÕNG INOX TRÒN", size: "X", price: 850000, stock: 1, category: "Hammock" },
+      { name: "VÕNG INOX VUÔNG", size: "X", price: 900000, stock: 1, category: "Hammock" },
+      { name: "GIƯỜNG", size: "1M6", price: 1500000, stock: 2, category: "Bed" },
+      { name: "GIƯỜNG", size: "1M4", price: 1400000, stock: 0, category: "Bed" },
+      { name: "GIƯỜNG", size: "1M2", price: 1300000, stock: 2, category: "Bed" },
+      { name: "GIƯỜNG", size: "1M", price: 1200000, stock: 1, category: "Bed" },
+      { name: "GIƯỜNG VUÔNG KIM THÀNH", size: "1M6", price: 2800000, stock: 1, category: "Bed" },
+      { name: "GIƯỜNG GẤP 2", size: "1M", price: 1200000, stock: 1, category: "Bed" },
+      { name: "GIƯỜNG GẤP 2", size: "80", price: 1100000, stock: 1, category: "Bed" },
+      { name: "GIƯỜNG VẢI", size: "X", price: 600000, stock: 2, category: "Bed" },
+      { name: "GIƯỜNG ĐÀI LOAN", size: "X", price: 500000, stock: 1, category: "Bed" },
+      { name: "GHẾ DÙ", size: "X", price: 450000, stock: 2, category: "Chair" },
+      { name: "GHẾ ĐÀI LOAN", size: "X", price: 400000, stock: 3, category: "Chair" },
+      { name: "GHẾ HỌC SINH", size: "X", price: 250000, stock: 7, category: "Chair" },
+      { name: "CHIẾU TRÚC", size: "1M6", price: 650000, stock: 2, category: "Mat" },
+      { name: "CHIẾU TRÚC", size: "1M4", price: 600000, stock: 1, category: "Mat" },
+      { name: "CHIẾU TRÚC", size: "1M2", price: 580000, stock: 1, category: "Mat" },
+      { name: "BÀN INOX TRÒN", size: "1M2", price: 1100000, stock: 1, category: "Table" },
+      { name: "BÀN INOX VUÔNG", size: "1M2", price: 900000, stock: 1, category: "Table" },
+      { name: "BÀN INOX VUÔNG", size: "1M", price: 800000, stock: 2, category: "Table" },
+      { name: "BÀN HỌC SINH SẮT", size: "X", price: 600000, stock: 1, category: "Table" },
+      { name: "TỦ GIÀY DUY TÂN", size: "X", price: 1600000, stock: 1, category: "Cabinet" }
+    ];
+
+    // Creating the main App component
+    function App() {
+      const [filter, setFilter] = React.useState("All");
+
+      // Filtering products based on category
+      const filteredProducts = filter === "All" ? products : products.filter(p => p.category === filter);
+
+      // Formatting price with commas
+      const formatPrice = (price) => {
+        return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+      };
+
+      return (
+        <div className="min-h-screen bg-gray-100">
+          {/* Creating header section */}
+          <header className="bg-blue-600 text-white py-6">
+            <div className="container mx-auto px-4">
+              <h1 className="text-3xl font-bold">2025 Product Price List</h1>
+              <p className="mt-2">Explore our range of mattresses, furniture, and more!</p>
+            </div>
+          </header>
+
+          {/* Creating filter section */}
+          <section className="container mx-auto px-4 py-6">
+            <div className="mb-4">
+              <label className="mr-2 font-semibold">Filter by Category:</label>
+              <select
+                className="p-2 border rounded"
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+              >
+                <option value="All">All</option>
+                <option value="Mattress">Mattress</option>
+                <option value="Cabinet">Cabinet</option>
+                <option value="Table">Table</option>
+                <option value="Chair">Chair</option>
+                <option value="Hammock">Hammock</option>
+                <option value="Bed">Bed</option>
+                <option value="Mat">Mat</option>
+              </select>
+            </div>
+
+            {/* Creating product table */}
+            <div className="overflow-x-auto bg-white shadow rounded-lg">
+              <table className="min-w-full divide-y divide-gray-200">
+                <thead className="bg-gray-50">
+                  <tr>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Product Name</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Size</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Price (VND)</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Stock</th>
+                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Category</th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {filteredProducts.map((product, index) => (
+                    <tr key={index} className={product.stock === 0 ? "bg-red-50" : ""}>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{product.name}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.size}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{formatPrice(product.price)}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.stock}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{product.category}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Creating footer section */}
+          <footer className="bg-gray-800 text-white py-4">
+            <div className="container mx-auto px-4 text-center">
+              <p>&copy; 2025 Furniture Store. All rights reserved.</p>
+            </div>
+          </footer>
+        </div>
+      );
+    }
+
+    // Rendering the App component
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>
